@@ -255,3 +255,16 @@ Files changed:
 
 Next task:
 [Update this after we confirm the remaining Friday task order.]
+
+### Task 6 — Completed
+
+- Added the required note distinguishing the sample-level temporal representation in segments.csv from the fragment-level handcrafted-feature representation in dataset.csv.
+- Documented that segments.csv preserves the ordered telemetry samples, while dataset.csv provides derived fragment-level numerical characteristics.
+- The distinction is documented without making final model-input or preprocessing decisions.
+
+Files changed:
+- notebooks/01_dataset_inspection.ipynb
+- docs/project_context.md
+
+Next:
+Complete the Friday learning topics and the Explain-It Check.
