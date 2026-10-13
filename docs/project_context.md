@@ -18,9 +18,9 @@ Core target: 31 October 2026
 
 Current stage: Day 2 — Dataset Anatomy
 
-Current task: Task 0 completed
+Completed through: Task 2
 
-Next task: Task 1 — Inspect dataset.csv and segments.csv
+Current task: Task 3 — Basic data-quality checks
 
 ---
 
@@ -49,6 +49,12 @@ Next task: Task 1 — Inspect dataset.csv and segments.csv
 - Python 3.12 project environment confirmed.
 - OPSSAT-AD source files confirmed available locally.
 - No raw dataset files modified.
+- Task 1: documented what dataset.csv and segments.csv represent.
+- Task 2: identified label/anomaly-related fields, train/test indicator,
+  fragment identifiers, channel identifiers, raw telemetry fields and
+  handcrafted feature fields.
+- Unconfirmed label encodings, sampling semantics and telemetry units remain
+  marked ⚠️ Needs verification.
 
 ---
 
@@ -95,33 +101,6 @@ This does NOT mean:
 
 ---
 
-## Current Day 2 Deliverables
-
-The Friday dataset-anatomy work still to complete:
-
-- Inspect dataset.csv and document what it represents.
-- Inspect segments.csv and document what it represents.
-- Identify labels.
-- Identify train/test indicator.
-- Identify fragment identifiers.
-- Identify channel identifiers.
-- Identify feature columns.
-- Check data types.
-- Check missing values.
-- Check duplicates.
-- Check class balance.
-- Check fragment lengths.
-- Check basic ranges.
-- Create the required data dictionary.
-- Plot several normal and anomalous telemetry fragments.
-- Write the raw telemetry vs handcrafted-feature representation note.
-- Complete the Friday learning topics.
-- Complete the Friday Explain-It Check.
-
-Saturday EDA tasks are NOT being pulled into Friday.
-
----
-
 ## Files Relevant to Current Work
 
 Main notebook:
@@ -151,10 +130,68 @@ docs/project_map.md
 
 ---
 
+## Current Day 2 Status
+
+### Completed
+- Task 0 — Workspace/environment verification.
+- Task 1 — Documented what dataset.csv and segments.csv represent.
+- Task 2 — Identified label/anomaly-related fields, train/test indicator,
+  fragment identifiers, channel identifiers, raw telemetry fields and
+  handcrafted feature fields.
+
+### Remaining Today
+- Check data types, missing values and duplicates.
+- Check class balance.
+- Check fragment lengths.
+- Check basic value ranges.
+- Create the data dictionary for fields that will actually be used.
+- Plot several normal and anomalous telemetry fragments.
+- Write the raw telemetry vs handcrafted-feature representation note.
+- Complete the Friday learning topics.
+- Complete the Friday Explain-It Check.
+
+---
+
+## Task 1 — Completed
+
+- Documented what dataset.csv represents.
+- Documented what segments.csv represents.
+- Established the relationship between fragment identifiers across the two files.
+- Distinguished the raw time-series telemetry representation from the
+  fragment-level handcrafted-feature representation.
+
+Files changed:
+- notebooks/01_dataset_inspection.ipynb
+
+---
+
+## Task 2 — Completed
+
+- Identified label/anomaly-related fields.
+- Identified the train/test indicator.
+- Identified fragment/segment identifiers.
+- Identified channel identifiers.
+- Identified raw telemetry fields.
+- Identified the 18 documented handcrafted features in dataset.csv.
+- Distinguished metadata/identifiers from candidate predictive features.
+- Unconfirmed label encodings, sampling semantics and telemetry units remain
+  marked ⚠️ Needs verification.
+
+Files changed:
+- notebooks/01_dataset_inspection.ipynb
+- docs/project_context.md
+
+---
+
 ## Current Next Step
 
-Task 1:
-Inspect dataset.csv and segments.csv and determine exactly what each file represents.
+Task 3:
+Check data types, missing values, duplicates, class balance,
+fragment lengths and basic ranges.
+
+---
+
+## Context Maintenance
 
 After every completed task:
 1. Record what was completed.
