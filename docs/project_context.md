@@ -199,3 +199,27 @@ After every completed task:
 3. Record files changed.
 4. Record important decisions.
 5. Record the next task.
+
+### Task 3 — Completed
+
+- Checked data types for dataset.csv and segments.csv.
+- dataset.csv contains 13 integer, 9 floating-point and 1 string column.
+- segments.csv contains 4 integer, 1 floating-point and 3 string columns.
+- No explicit missing values were found in either CSV.
+- No exact duplicate rows were found in either CSV.
+- dataset.csv contains 434 anomaly=1 fragments (20.44%) and 1,689 anomaly=0 fragments (79.56%).
+- segments.csv contains 100,264 anomaly=1 samples (33.04%) and 203,229 anomaly=0 samples (66.96%).
+- The differing anomaly proportions are reported at different granularities: fragment level in dataset.csv and raw-sample level in segments.csv.
+- segments.csv fragment lengths range from 8 to 1,040 samples, with mean 142.95 and median 70 samples.
+- The dataset.csv len field matches the observed number of samples in segments.csv for all 2,123 fragments.
+- All dataset.csv segments have corresponding raw telemetry, and all raw segments have corresponding dataset.csv records.
+- Observed raw telemetry values in segments.csv range from -0.000101 to 1.5708.
+- Basic numerical ranges for dataset.csv fields were checked.
+- The exact semantic relationship between label and anomaly remains ⚠️ Needs verification.
+
+Files changed:
+- notebooks/01_dataset_inspection.ipynb
+- docs/project_context.md
+
+Next task:
+Task 4 — Create the data dictionary for fields that will actually be used.
