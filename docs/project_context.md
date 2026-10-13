@@ -223,3 +223,19 @@ Files changed:
 
 Next task:
 Task 4 — Create the data dictionary for fields that will actually be used.
+
+### Task 4 — Completed
+
+- Created the project data dictionary for the relevant fields in dataset.csv and segments.csv.
+- Documented field roles, observed data types, descriptions and project use.
+- Explicitly documented the 18 handcrafted features in dataset.csv.
+- Distinguished raw telemetry, identifiers, metadata, labels and split information.
+- Unresolved semantic details remain marked ⚠️ Needs verification.
+- The data dictionary documents current field roles but does not define the final model feature-selection or preprocessing decisions.
+
+Files changed:
+- docs/data_dictionary.md
+- docs/project_context.md
+
+Next task:
+Task 5 — Plot several normal and anomalous telemetry fragments.
