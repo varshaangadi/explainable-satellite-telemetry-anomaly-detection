@@ -239,3 +239,19 @@ Files changed:
 
 Next task:
 Task 5 — Plot several normal and anomalous telemetry fragments.
+
+### Task 5 — Completed
+
+- Plotted several representative telemetry fragments from the observed anomaly=0 and anomaly=1 categories.
+- Plots use the sample-level telemetry representation in segments.csv.
+- Fragments are grouped by segment and ordered by timestamp before plotting.
+- Telemetry value is plotted against the ordered time/sample sequence.
+- Visual inspection was used for dataset understanding only and not for physical root-cause diagnosis.
+- Any unresolved anomaly-encoding semantics remain marked ⚠️ Needs verification.
+
+Files changed:
+- notebooks/01_dataset_inspection.ipynb
+- docs/project_context.md
+
+Next task:
+[Update this after we confirm the remaining Friday task order.]
