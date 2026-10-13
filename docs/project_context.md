@@ -268,3 +268,18 @@ Files changed:
 
 Next:
 Complete the Friday learning topics and the Explain-It Check.
+
+## Saturday 10 Oct - Task 1: Channel Behaviour EDA
+
+- Completed channel-level EDA for the nine observed telemetry channels using the existing OPSSAT-AD `segments.csv` data.
+- No missing timestamps or telemetry values were observed within any channel, consistent with Friday's full-table check.
+- Observed channel ranges vary; the overall observed range is -0.000101 to 1.5708. No telemetry units or spacecraft operating limits are inferred.
+- Observed `sampling` field values are 1 and 5. Timestamp-derived median intervals within fragments vary by channel; the field's exact semantics remain marked ⚠️ Needs verification.
+- Fragment lengths and value distributions vary by channel and recorded anomaly category; these comparisons are descriptive and do not establish physical faults or root causes.
+- Added channel summary tables and two Matplotlib figures to the existing notebook. No raw CSV was modified.
+
+Files changed:
+- notebooks/01_dataset_inspection.ipynb
+- docs/project_context.md
+
+Next: Confirm the next Saturday task from the project plan.
