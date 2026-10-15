@@ -283,3 +283,26 @@ Files changed:
 - docs/project_context.md
 
 Next: Confirm the next Saturday task from the project plan.
+
+### Saturday Task 2 — Completed
+
+- Compared raw sample-level telemetry from segments.csv with the corresponding fragment-level fields in dataset.csv.
+- Recomputed fragment length, mean, variance and standard deviation from the raw telemetry.
+- Fragment length and mean matched up to floating-point precision.
+- Initial variance and standard-deviation differences were caused by using the default sample-statistics convention (`ddof=1`).
+- Recomputed variance and standard deviation using `ddof=0`; maximum absolute differences were effectively zero.
+- The supplied len, mean, var and std fields are therefore consistent with the raw telemetry when the same statistical convention is used.
+- Specialized handcrafted features were not reverse-engineered without needing their exact definitions.
+- No final model representation, preprocessing or feature-selection decision was made.
+
+Key findings:
+- Raw `len`, `mean`, `var` and `std` are consistent with the corresponding fields in dataset.csv.
+- The supplied variance and standard deviation use a convention consistent with `ddof=0`.
+- The handcrafted representation is consistent for these statistics but does not preserve the complete temporal sequence.
+
+Files changed:
+- notebooks/01_dataset_inspection.ipynb
+- docs/project_context.md
+
+Next task:
+Task 3 — Identify at least three data-quality challenges and document how each will be handled.
