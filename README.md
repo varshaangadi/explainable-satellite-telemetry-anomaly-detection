@@ -6,7 +6,7 @@ How can anomaly-detection approaches identify unusual patterns in satellite tele
 
 ## Dataset
 
-The planned primary dataset is **OPSSAT-AD**. Its exact version, files, labels, channels, split, representation, licence, and attribution have not yet been verified. See [the data card template](docs/data_card.md) and [OPSSAT-AD research notes](references/OPSSAT_AD_notes.md). No dataset is included in this repository at this stage.
+The primary dataset is **OPSSAT-AD 2025**, using the public Zenodo v2 release (DOI: 10.5281/zenodo.15108715). The local EDA inspected `dataset.csv` (2,123 fragment rows, 23 columns) and `segments.csv` (303,493 sample rows, 8 columns), covering nine observed telemetry channels. The raw files remain outside this repository. See [the data card](docs/data_card.md) and [OPSSAT-AD research notes](references/OPSSAT_AD_notes.md).
 
 ## Three parallel approaches
 
@@ -26,7 +26,17 @@ The project makes no claim of ISRO/ISTRAC affiliation, access to confidential IS
 
 ## Current status
 
-**Week 1: orientation and repository setup.** The work is currently limited to organizing the repository and planning dataset and literature verification. No models or dashboard have been implemented, and no dataset has been added.
+Initial dataset inspection and Saturday EDA are complete. The EDA found no explicit missing values or exact duplicate rows in either inspected file. `dataset.csv` records 434/2,123 (20.44%) fragments as `anomaly=1`; in `segments.csv`, 100,264/303,493 (33.04%) samples are in that recorded category. These are different counting units. Fragment lengths are 8–1,040 samples (median 70), and the `len`, `mean`, `var`, and `std` fields agree with raw samples when variance uses `ddof=0`. Channel ranges and timestamp intervals vary. These observations are descriptive and do not establish physical limits or causes. Label semantics, `sampling` meaning, timestamp conventions, and telemetry units remain ⚠️ Needs verification.
+
+## Initial data-preparation decisions
+
+- Preserve the source files unchanged and retain the fragment boundary and timestamp information during future work.
+- Keep the published train/test split; do not relabel or resplit based on the observed categories.
+- Treat `dataset.csv` as fragment-level handcrafted features and `segments.csv` as sample-level temporal telemetry. Their shared fragment statistics do not make the temporal representation redundant.
+- Report class balance with its unit (fragment or sample) and evaluate per class; the two file-level proportions are not interchangeable.
+- Keep channel identity available in analysis and document any future comparison across channels.
+- The EDA does not select a model input representation or determine length handling, resampling/gap policy, scaling, feature selection, or threshold/training strategy. Those choices are deferred until the relevant modeling/evaluation stage.
+- The meanings of `label` versus `anomaly`, observed `anomaly` encodings, `sampling`, timestamp conventions, and telemetry units ⚠️ Needs verification.
 
 ## Planned pipeline
 

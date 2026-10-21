@@ -16,11 +16,11 @@ Project start: 8 October 2026
 
 Core target: 31 October 2026
 
-Current stage: Day 2 — Dataset Anatomy
+Current stage: Initial data-preparation decisions frozen after Saturday EDA
 
-Completed through: Task 2
+Completed through: Saturday Task 5
 
-Current task: Task 3 — Basic data-quality checks
+Current task: Next task to be confirmed from the project plan
 
 ---
 
@@ -306,3 +306,59 @@ Files changed:
 
 Next task:
 Task 3 — Identify at least three data-quality challenges and document how each will be handled.
+
+### Saturday 10 Oct — Task 3: Data-Quality Challenges
+
+Completed identification and documentation of four data-quality/pipeline
+challenges from the existing OPSSAT-AD EDA:
+
+1. Unequal fragment lengths: 8–1,040 samples per fragment; median 70.
+2. Class imbalance: 434/2,123 dataset fragments (20.44%) are anomaly-labelled.
+3. Sampling/timestamp variability: observed sampling values are 1 and 5;
+   timestamp-derived intervals are not uniformly regular.
+4. Channel scale/range differences: observed channel value ranges differ
+   substantially.
+
+Documented observed evidence, why each issue matters, likely pipeline impact,
+and proposed handling in `notebooks/01_dataset_inspection.ipynb`.
+
+No data transformations, model training, new datasets, or final preprocessing
+decisions were introduced. Uncertain semantics remain marked
+⚠️ Needs verification.
+
+Next task: Saturday 10 Oct — Task 4.
+### Saturday 10 Oct — Task 4: Initial Report Figures
+
+Completed the initial report figures required for the EDA stage.
+
+Figures added/reused in `notebooks/01_dataset_inspection.ipynb`:
+1. Representative normal telemetry fragment.
+2. Representative anomalous telemetry fragment.
+3. Fragment counts by observed anomaly category.
+4. Basic data-quality checks for `dataset.csv` and `segments.csv`, showing explicit missing values and exact duplicate rows.
+5. Fragment-level relationship between mean and standard deviation.
+
+The figures are descriptive and intended for the initial project report. They support understanding of class distribution, basic data quality, representative telemetry behaviour, and relationships among handcrafted features.
+
+No physical spacecraft fault, root cause, or causal relationship is inferred from these figures. The observed `anomaly` categories are treated as recorded dataset categories.
+
+No raw CSV files were modified, and no model training or new preprocessing decisions were introduced.
+
+Next task: Saturday 10 Oct — Task 5: Freeze initial data-preparation decisions in the README/research log.
+
+### Saturday 10 Oct — Task 5: Initial Data-Preparation Decisions
+
+- Recorded initial preparation decisions supported by the completed EDA in the README, decision log, and this context file.
+- Preserve the raw source files and published train/test membership; retain fragment boundaries, timestamps, and channel identity during future analysis.
+- Keep fragment-level `dataset.csv` features distinct from sample-level temporal `segments.csv`. The supplied `len`, `mean`, `var`, and `std` agree with raw samples when variance uses `ddof=0`; this does not establish that the temporal sequence is dispensable.
+- Report anomaly-category balance with its counting unit and include per-class evaluation; observed fragment- and sample-level proportions differ.
+- EDA describes unequal fragment lengths, timestamp interval variation, and differing channel ranges. It does not choose the model representation, length/window strategy, resampling or gap policy, scaling, feature selection, or training/threshold handling; these remain deferred.
+- Exact `label`/`anomaly` relationship and encoding, `sampling` meaning, timestamp conventions, and physical units/limits remain ⚠️ Needs verification. Observed value ranges are not physical limits, and category plots do not establish fault causes.
+- No models were trained, no data was transformed, and no raw CSV was modified.
+
+Files changed:
+- README.md
+- references/decision_log.md
+- docs/project_context.md
+
+Next task: Confirm from the project plan.
