@@ -42,6 +42,12 @@ Initial dataset inspection and Saturday EDA are complete. The EDA found no expli
 
 Verify the OPSSAT-AD source and documentation; inspect the data through exploratory data analysis (EDA); preserve the published train/test separation; document and apply preprocessing; develop and compare the three parallel approaches; produce anomaly scores and a documented decision rule; associate detections with channel-level evidence; and, later, present results in a dashboard. Details and learning milestones are in [the project map](docs/project_map.md).
 
+## Data Pipeline
+
+Raw OPSSAT-AD files (`dataset.csv` and `segments.csv`, kept outside the repository) → loading and schema/quality/consistency validation → the published `train` split → clean train/test objects retaining fragment, channel, timestamp, and observed label fields. The reusable loader is in `src/data/opssat_pipeline.py`, with a runnable example in `notebooks/02_data_pipeline_demo.py`.
+
+Leakage rule: preprocessing parameters must be fit on training data only; this initial loader fits no parameters and applies no scaling or normalization. Sequence length, windowing, padding/truncation, and the final LSTM representation remain deferred. The observed mapping `train=1` to train and `train=0` to test is used for the demo and remains ⚠️ Needs verification against authoritative split documentation.
+
 ## Repository layout
 
 - `data/`: raw and processed data locations; data is not currently included.
